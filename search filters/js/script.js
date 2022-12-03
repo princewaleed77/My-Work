@@ -117,7 +117,28 @@ function searchProductByName(searchTerm) {
     };
     document.getElementById("tableBody").innerHTML = box;
 };
+// search by id
+function searchProductByIndex(searchTerm) {
+    var box = ``;
+    for (var i = 0; i < products.length; i++) {
 
+        if (searchTerm == i) {
+            box += `<tr>
+            <td>`+ i + `</td>
+            <td>`+ products[i].name + `</td>
+            <td>`+ products[i].price + `</td>
+            <td>`+ products[i].category + `</td>
+            <td>`+ products[i].desc + `</td>
+            <td> <button class="btn btn-outline-warning" onclick='update(`+ i + `)'>update</button> </td>
+            <td> <button class="btn btn-outline-danger" onclick='deleteProduct(`+ i + `)'>delete</button> </td>
+            </tr>`;
+
+        };
+        // displayProducts()
+
+    };
+    document.getElementById("tableBody").innerHTML = box;
+};
 // to update a product
 function update(productIndex) {
     productNameInput.value = products[productIndex].name;
